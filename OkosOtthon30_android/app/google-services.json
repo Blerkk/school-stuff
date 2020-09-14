@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "594208959067",
+    "firebase_url": "https://patakysmarthome.firebaseio.com",
+    "project_id": "patakysmarthome",
+    "storage_bucket": "patakysmarthome.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594208959067:android:177005208c8df27b0c2d7e",
+        "android_client_info": {
+          "package_name": "com.example.okosotthon20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594208959067-dt9onlv6a0hp1ugd2ps76v0iv2m8bted.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.okosotthon20",
+            "certificate_hash": "da0524f6beec330a14832f7e91f02cb3b2736a5f"
+          }
+        },
+        {
+          "client_id": "594208959067-vema43b7tvca9mnmdfla2mskv51rn64f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3VM3g-owyu5NxVVD2eOlUJ5lEw49gHOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594208959067-vema43b7tvca9mnmdfla2mskv51rn64f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594208959067:android:0d15b64d8f28c6860c2d7e",
+        "android_client_info": {
+          "package_name": "com.example.okosotthon30"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594208959067-vema43b7tvca9mnmdfla2mskv51rn64f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3VM3g-owyu5NxVVD2eOlUJ5lEw49gHOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594208959067-vema43b7tvca9mnmdfla2mskv51rn64f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_nappali">
+    <fragment
+        android:id="@+id/navigation_nappali"
+        android:name="com.example.okosotthon30.ui.nappali.nappaliFragment"
+        android:label="@string/title_nappali"
+        tools:layout="@layout/fragment_nappali" >
+        <action
+            android:id="@+id/action_navigation_nappali_to_navigation_etkezo"
+            app:destination="@id/navigation_etkezo"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_etkezo"
+        android:name="com.example.okosotthon30.ui.etkezo.etkezoFragment"
+        android:label="@string/title_etkezo"
+        tools:layout="@layout/fragment_etkezo" >
+        <action
+            android:id="@+id/action_navigation_etkezo_to_navigation_halo"
+            app:destination="@id/navigation_halo"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_halo"
+        android:name="com.example.okosotthon30.ui.halo.haloFragment"
+        android:label="@string/title_halo"
+        tools:layout="@layout/fragment_halo" >
+        <action
+            android:id="@+id/action_navigation_halo_to_navigation_furdo"
+            app:destination="@id/navigation_furdo"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_furdo"
+        android:name="com.example.okosotthon30.ui.furdo.furdoFragment"
+        android:label="@string/title_furdo"
+        tools:layout="@layout/fragment_furdo" />
+</navigation>

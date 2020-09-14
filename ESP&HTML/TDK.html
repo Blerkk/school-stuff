@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    <!-- fontawesome -->                                             <!-- animation cucc -->                                              <!-- night mode -->                                            <!-- night mode javascript-je -->
+<style>
+.button {
+  background-color: #059e8a; /* NEM Green */
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+</head>
+<body bgcolor="#00151f">
+
+<div>
+  <div class="content">
+  
+    <div align="center">
+      <h2 align="center" style="color:#ffffff;">PATAKY<br>SMART HOME</h2>
+      <i align="center" class="fas fa-home fa-7x" style="color:#059e8a;"></i> 
+    </div>
+
+    <div>
+      <table class style="width:100%" align="center">
+        <tr align="center">
+          <td align="center">
+            <h1 style="color:#ffffff;">KONYHA</h1>
+            <br>
+            <br>
+            <i class="fas fa-thermometer-half fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <span id="TEMP1" style="color:#ffffff;">--</span>
+            <sup class="units" style="color:#ffffff;">&deg;C</sup>
+            <br>
+            <br>
+            <i class="fab fa-microsoft fa-3x" style="color:#059e8a;"></i> 
+            <br>
+            <br>
+            <span id="WINDOW1" style="color:#ffffff;">--</span>
+            <br>
+            <br>
+            <i class="far fa-lightbulb fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <button class="button" type="button" onclick="LAMP1BE()">BE</button>
+            <button class="button" type="button" onclick="LAMP1KI()">KI</button><BR>
+          </td>
+          <td>
+            <h1 style="color:#ffffff;">FÜRDŐSZOBA</h1>
+            <br>
+            <br>
+            <i class="fas fa-thermometer-half fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <span id="TEMP2" style="color:#ffffff;">--</span>
+            <sup class="units" style="color:#ffffff;">&deg;C</sup>
+            <br>
+            <br>
+            <i class="fab fa-microsoft fa-3x" style="color:#059e8a;"></i> 
+            <br>
+            <br>
+            <span id="WINDOW2" style="color:#ffffff;">--</span>
+            <br>
+            <br>
+            <i class="far fa-lightbulb fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <button class="button" type="button" onclick="LAMP2BE()">BE</button>
+            <button class="button" type="button" onclick="LAMP2KI()">KI</button><BR>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <h1 style="color:#ffffff;">HÁLÓSZOBA</h1>
+            <br>
+            <br>
+            <i class="fas fa-thermometer-half fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <span id="TEMP3" style="color:#ffffff;">--</span> 
+            <sup class="units" style="color:#ffffff;">&deg;C</sup>
+            <br>
+            <br>
+            <i class="fab fa-microsoft fa-3x" style="color:#059e8a;"></i> 
+            <br>
+            <br>
+            <span id="WINDOW3" style="color:#ffffff;">--</span>
+            <br>
+            <br>
+            <i class="far fa-lightbulb fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <button class="button" type="button" onclick="LAMP3BE()">BE</button>
+            <button class="button" type="button" onclick="LAMP3KI()">KI</button><BR>
+          </td>
+          <td align="center">
+            <h1 style="color:#ffffff;">NAPPALI</h1>
+            <br>
+            <br>
+            <i class="fas fa-thermometer-half fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <span id="TEMP4" style="color:#ffffff;">--</span>
+            <sup class="units" style="color:#ffffff;">&deg;C</sup>
+            <br>
+            <br>
+            <i class="fab fa-microsoft fa-3x" style="color:#059e8a;"></i> 
+            <br>
+            <br>
+            <span id="WINDOW4" style="color:#ffffff;">--</span>
+            <br>
+            <br>
+            <i class="far fa-lightbulb fa-3x" style="color:#059e8a;"></i>
+            <br>
+            <br>
+            <button class="button" type="button" onclick="LAMP4BE()">BE</button>
+            <button class="button" type="button" onclick="LAMP4KI()">KI</button><BR>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBlZTudmZCMKIzP4EnsBwYO-0jrArBjIQA",
+    authDomain: "patakysmarthome.firebaseapp.com",
+    databaseURL: "https://patakysmarthome.firebaseio.com",
+    projectId: "patakysmarthome",
+    storageBucket: "patakysmarthome.appspot.com",
+    messagingSenderId: "594208959067",
+    appId: "1:594208959067:web:7c797e133bc8aad20c2d7e",
+    measurementId: "G-MV23ZR2HCX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+setInterval(function(){
+firebase.database().ref('/ETKEZO').once('value').then(function(snapshot){
+if(snapshot.child('WINDOW').val() == false){
+	var WINDOW1 = "ZÁRVA";
+}
+else{
+	var WINDOW1 = "NYITVA";
+}
+document.getElementById("WINDOW1").innerHTML = WINDOW1;
+
+document.getElementById("TEMP1").innerHTML = snapshot.child('TEMP').val();
+});
+
+firebase.database().ref('/FURDO').once('value').then(function(snapshot){
+if(snapshot.child('WINDOW').val() == false){
+	var WINDOW2 = "ZÁRVA";
+}
+else{
+	var WINDOW2 = "NYITVA";
+}
+document.getElementById("WINDOW2").innerHTML = WINDOW2;
+
+document.getElementById("TEMP2").innerHTML = snapshot.child('TEMP').val();
+});
+
+firebase.database().ref('/HALO').once('value').then(function(snapshot){
+if(snapshot.child('WINDOW').val() == false){
+	var WINDOW3 = "ZÁRVA";
+}
+else{
+	var WINDOW3 = "NYITVA";
+}
+document.getElementById("WINDOW3").innerHTML = WINDOW3;
+
+document.getElementById("TEMP3").innerHTML = snapshot.child('TEMP').val();
+});
+
+firebase.database().ref('/NAPPALI').once('value').then(function(snapshot){
+if(snapshot.child('WINDOW').val() == false){
+	var WINDOW4 = "ZÁRVA";
+}
+else{
+	var WINDOW4 = "NYITVA";
+}
+document.getElementById("WINDOW4").innerHTML = WINDOW4;
+
+document.getElementById("TEMP4").innerHTML = snapshot.child('TEMP').val();
+});
+}, 1500);
+</script>
+<script>
+function LAMP1BE(){
+	var updatetest = {};
+	updatetest['/ETKEZO/LAMP'] = true;
+	firebase.database().ref().update(updatetest);
+}
+function LAMP1KI(){
+	var updatetest = {};
+	updatetest['/ETKEZO/LAMP'] = false;
+	firebase.database().ref().update(updatetest);
+}
+function LAMP2BE(){
+	var updatetest = {};
+	updatetest['/FURDO/LAMP'] = true;
+	firebase.database().ref().update(updatetest);
+
+}
+function LAMP2KI(){
+	var updatetest = {};
+	updatetest['/FURDO/LAMP'] = false;
+	firebase.database().ref().update(updatetest);
+
+}
+function LAMP3BE(){
+	var updatetest = {};
+	updatetest['/HALO/LAMP'] = true;
+	firebase.database().ref().update(updatetest);
+
+}
+function LAMP3KI(){
+	var updatetest = {};
+	updatetest['/HALO/LAMP'] = false;
+	firebase.database().ref().update(updatetest);
+
+}
+function LAMP4BE(){
+	var updatetest = {};
+	updatetest['/NAPPALI/LAMP'] = true;
+	firebase.database().ref().update(updatetest);
+
+}
+function LAMP4KI(){
+	var updatetest = {};
+	updatetest['/NAPPALI/LAMP'] = false;
+	firebase.database().ref().update(updatetest);
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_nappali"
+        android:icon="@drawable/ic_nappali"
+        android:title="@string/title_nappali"/>
+
+    <item
+        android:id="@+id/navigation_etkezo"
+        android:icon="@drawable/ic_etkezo"
+        android:title="@string/title_etkezo"/>
+
+    <item
+        android:id="@+id/navigation_halo"
+        android:icon="@drawable/ic_halo"
+        android:title="@string/title_halo"/>
+
+    <item
+        android:id="@+id/navigation_furdo"
+        android:icon="@drawable/ic_furdo"
+        android:title="@string/title_furdo"/>
+
+</menu>

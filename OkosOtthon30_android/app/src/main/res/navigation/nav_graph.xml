@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/nappaliFragmentje"
+        android:name="com.example.okosotthon30.ui.nappali.nappaliFragment"
+        android:label="nappaliFragment"
+        tools:layout="@layout/fragment_nappali"/>
+
+    <fragment
+        android:id="@+id/etkezoFragmentje"
+        android:name="com.example.okosotthon30.ui.etkezo.etkezoFragment"
+        android:label="etkezoFragment"
+        tools:layout="@layout/fragment_etkezo"/>
+
+    <fragment
+        android:id="@+id/haloFragmentje"
+        android:name="com.example.okosotthon30.ui.halo.haloFragment"
+        android:label="haloFragment"
+        tools:layout="@layout/fragment_halo"/>
+
+    <fragment
+        android:id="@+id/furdoFragmentje"
+        android:name="com.example.okosotthon30.ui.furdo.furdoFragment"
+        android:label="furdoFragment"
+        tools:layout="@layout/fragment_furdo"></fragment>
+
+</navigation>
