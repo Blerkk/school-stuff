@@ -1,0 +1,8 @@
+1. idopont: 8:15
+szin: 255 255 255
+
+2. idopont: 12:30
+szin: 255 255 255
+
+3. idopont: 17:20
+szin: 255 255 255
