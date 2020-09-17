@@ -14,6 +14,8 @@ boundaries = [
 	([1, 0, 0], [25, 255, 25]), #tudnam miert nem jo neki ha ugyan ugy nulla az elso mint az osszes tobbinel // tudnam miert nem jo 254-el a masik ketto meg miert csak azzal jo smh
 	([0, 0, 0], [254, 25, 25])
 ]
+# greenLower = (29, 86, 6)
+# greenUpper = (64, 255, 255)
 
 # loop over the boundaries
 for (lower, upper) in boundaries:
