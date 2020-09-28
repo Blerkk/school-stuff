@@ -20,3 +20,9 @@
 # fileN = fileName.split('.')
 
 # print("Your file's extension is: " + fileN[1])
+# x=0
+# y="G"
+# while True:
+#     x+=1
+#     y+=" G"
+#     print(y + str(x))
