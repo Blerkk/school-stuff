@@ -11,7 +11,8 @@ GPIO.setup(16, GPIO.OUT)
 GPIO.setup(18, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
 
-ablak = Tk() ablak.title("GPIO kapcsolo")
+ablak = Tk()
+ablak.title("GPIO kapcsolo")
 ablak.geometry("200x250")
 ablak.resizable(0, 0)
 
