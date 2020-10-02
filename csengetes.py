@@ -24,19 +24,6 @@ napok[2].nap = szerda
 napok[3].nap = csutortok
 napok[4].nap = pentek
 
-
-#
-# 1.ora 7:30 becsengo - 8:15 kicsengo
-# 2.ora 8:25 becsengo - 9:10 kicsengo
-# 3.ora 9:20 becsengo - 10:05 kicsengo
-# 4.ora 10:20 becsengo - 11:05 kicsengo
-# 5.ora 11:15 becsengo - 12:00 kicsengo
-# 6.ora 12:15 becsengo - 13:00 kicsengo
-# 7.ora 13:15 becsengo - 14:00 kicsengo
-# 8.ora 14:10 becsengo - 14:55 kicsengo
-# 9.ora 15:00 becsengo - 14:45 kicsengo
-#
-
 #GPIO.setmode(GPIO.BOARD)
 #GPIO.setup(kicsengo, GPIO.OUT)
 #GPIO.setup(becsengo, GPIO.OUT)
@@ -60,13 +47,13 @@ def csengetesValasztas(nap, action, mikor): #(nap, (kicsengo, becsengo, jelzocse
 
     for i in range(5):
         if(maiNap in napok[i].nap):
-            if(napok[i].nap == maiNap):
+            if(newNap == maiNap): #if(napok[i].nap == maiNap):          #ha a hetfo az a mai nap
                 if(newMikor == str(pontosIdo)):
                     #GPIO.output(action, GPIO.HIGH)
-                    print('\nmost kapcsol BE a csengo {}'.format(pontosIdo))
+                    print('\nMost kapcsol BE a csengo a {} pin-en.'.format(newAction))
                     sleep(3)
-                    ##GPIO.output(action, GPIO.LOW)
-                    print('\nmost kapcsol KI a csengo {}'.format(pontosIdo))
+                    #GPIO.output(action, GPIO.LOW)
+                    print('\nMost kapcsol KI a csengo {} pin-en.'.format(newAction))
         sleep(3)
         #sleep(12.0 * 60.0 * 60.0) //12 oras sleep lol
 
@@ -75,9 +62,13 @@ def csengetesValasztas(nap, action, mikor): #(nap, (kicsengo, becsengo, jelzocse
 def t1():
     while True:
         #1.ora
-        csengetesValasztas(hetfo, jelzocsengo, '8:13:00')
+        csengetesValasztas(hetfo, jelzocsengo, '8:13:00') #ha a hetfo az a mai nap
         csengetesValasztas(hetfo, becsengo, '8:15:00')
         csengetesValasztas(hetfo, kicsengo, '9:10:00')
+        #2.ora
+        csengetesValasztas(hetfo, jelzocsengo, '9:17:00')
+        csengetesValasztas(hetfo, becsengo, '9:20:00')
+        csengetesValasztas(hetfo, kicsengo, '10:05:00')
 
 
 def t2():
