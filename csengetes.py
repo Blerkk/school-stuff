@@ -47,16 +47,13 @@ def csengetesValasztas(nap, action, mikor): #(nap, (kicsengo, becsengo, jelzocse
 
     for i in range(5):
         if(maiNap in napok[i].nap):
-            if(newNap == maiNap): #if(napok[i].nap == maiNap):          #ha a hetfo az a mai nap
+            if(newNap == maiNap): #if(napok[i].nap == maiNap):          #ha a hetfo az a mai nap7                
                 if(newMikor == str(pontosIdo)):
                     #GPIO.output(action, GPIO.HIGH)
                     print('\nMost kapcsol BE a csengo a {} pin-en.'.format(newAction))
                     sleep(3)
                     #GPIO.output(action, GPIO.LOW)
                     print('\nMost kapcsol KI a csengo {} pin-en.'.format(newAction))
-        sleep(3)
-        #sleep(12.0 * 60.0 * 60.0) //12 oras sleep lol
-
     return newNap, newAction, newMikor
 
 def t1():
