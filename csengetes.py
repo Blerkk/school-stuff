@@ -32,7 +32,7 @@ napok[4].nap = pentek
 def idoUpdate():
     global pontosIdo 
     global maiNap
-    pontosIdo = strftime('%H:%M:%S')
+    pontosIdo = strftime('%H:%M')
     maiNap = strftime('%A')
 
 def csengetesValasztas(nap, action, mikor): #(nap, (kicsengo, becsengo, jelzocsengo), 'idopont' )
@@ -59,13 +59,13 @@ def csengetesValasztas(nap, action, mikor): #(nap, (kicsengo, becsengo, jelzocse
 def t1():
     while True:
         #1.ora
-        csengetesValasztas(hetfo, jelzocsengo, '8:13:00') #ha a hetfo az a mai nap
-        csengetesValasztas(hetfo, becsengo, '8:15:00')
-        csengetesValasztas(hetfo, kicsengo, '9:10:00')
+        csengetesValasztas(hetfo, jelzocsengo, '8:13') #ha a hetfo az a mai nap
+        csengetesValasztas(hetfo, becsengo, '8:15')
+        csengetesValasztas(hetfo, kicsengo, '9:10')
         #2.ora
-        csengetesValasztas(hetfo, jelzocsengo, '9:17:00')
-        csengetesValasztas(hetfo, becsengo, '9:20:00')
-        csengetesValasztas(hetfo, kicsengo, '10:05:00')
+        csengetesValasztas(hetfo, jelzocsengo, '9:17')
+        csengetesValasztas(hetfo, becsengo, '9:20')
+        csengetesValasztas(hetfo, kicsengo, '10:05')
 
 
 def t2():
