@@ -5,7 +5,6 @@ LiquidCrystal lcd = LiquidCrystal(12, 11, 5, 4, 3, 2);
 
 ezButton kovetkezo(7);
 bool szovegCsere = false;
-String torles = "                ";
 
 void setup () {
     lcd.begin(16, 2);
@@ -19,11 +18,6 @@ void loop () {
     if(szovegCsere == false) {
         if(kovetkezo.isPressed()){
             szovegCsere = true;
-            //lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print(torles);
-            lcd.setCursor(0, 1);
-            lcd.print(torles);
             Serial.println("sz. nap-ra cserelve");
         }
 
@@ -31,17 +25,12 @@ void loop () {
         lcd.setCursor(0, 0);
         lcd.print("Happy birthday,");
         lcd.setCursor(0, 1);
-        lcd.print("szerelmem! <3");
+        lcd.print("szerelmem! <3   ");
         delay(50);
     }
     else if(szovegCsere == true) {
         if(kovetkezo.isPressed()){
             szovegCsere = false;
-            //lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print(torles);
-            lcd.setCursor(0, 1);
-            lcd.print(torles);
             Serial.println("dugasra cserelve");
         }
 
@@ -56,9 +45,9 @@ void loop () {
 
         Serial.println("family friendly");
         lcd.setCursor(0, 0);
-        lcd.print("Meg sok ilyet");
+        lcd.print("Meg sok ilyet  ");
         lcd.setCursor(0, 1);
-        lcd.print("kivanok, my love");
+        lcd.print("kivanok,my love.");
         delay(50);
     }
 
