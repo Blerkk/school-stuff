@@ -45,11 +45,20 @@ void loop () {
             Serial.println("dugasra cserelve");
         }
 
-        Serial.println("dugas");
+//        Serial.println("dugas");
+//        lcd.setCursor(0, 0);
+//        lcd.print("ummm... dugunk?");
+//        lcd.setCursor(0, 1);
+//        lcd.print("legyszi? haha");
+//        delay(50);
+
+//family friendly
+
+        Serial.println("family friendly");
         lcd.setCursor(0, 0);
-        lcd.print("ummm... dugunk?");
+        lcd.print("Meg sok ilyet");
         lcd.setCursor(0, 1);
-        lcd.print("legyszi? haha");
+        lcd.print("kivanok, my love");
         delay(50);
     }
 
