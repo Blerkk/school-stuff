@@ -26,7 +26,7 @@ namespace HelloWinformsMultithreadedComplexity
 		private delegate void DisplayCountDelegate2(int j);
 		private delegate void EnableButtonDelegate();
 
-		private void StartCountingUp()
+        private void StartCountingUp()
 		{
 			for (var i = 0; i < 10; i++)
 			{
