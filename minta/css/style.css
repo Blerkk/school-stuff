@@ -236,7 +236,7 @@ ol {
 	display: inline-block;
 	font-size: 14px;
 	padding: 16px 36px 14px;
-	color: #646464;
+	color: #252422;
 	text-transform: uppercase;
 	font-weight: 700;
 	background: #CCC5B9;
@@ -625,7 +625,7 @@ ol {
 	border-radius: 10px;
 	box-shadow: 0px 0px 65px rgba(12, 26, 39, 0.05);
 	margin-bottom: 30px;
-	background: #eec4c9;
+	background: #CCC5B9;
 }
 
 .services__item h5 {
@@ -1145,7 +1145,7 @@ ol {
 .home__about__text span {
 	display: block;
 	font-size: 16px;
-	color: #000000;
+	color: #FFFCF2;
 	margin-bottom: 12px;
 }
 
@@ -2572,7 +2572,7 @@ ol {
 
 .map .map-inside .inside-widget h5 {
 	font-size: 20px;
-	color: #FFFCF2;
+	color: #252422;
 	margin-bottom: 4px;
 }
 
