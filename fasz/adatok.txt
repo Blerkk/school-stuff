@@ -1,0 +1,10 @@
+szekreny,49kg,MDF,150cm,true,ture;
+szekreny,40kg,MDF,90cm,false,ture;
+szekreny,35kg,MDF,65cm,true,false;
+szekreny,45kg,MDF,130cm,false,false;
+szekreny,38kg,MDF,100cm,false,ture;
+asztal,25kg,tolgy,70cm,negyzet,true;
+asztal,15kg,tolgy,75cm,ovalis,false;
+asztal,30kg,tolgy,70cm,negyzet,true;
+asztal,33kg,tolgy,70cm,kor,false;
+asztal,40kg,tolgy,75cm,negyzet,true;
