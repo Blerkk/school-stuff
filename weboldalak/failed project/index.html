@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<head>
+<div id="particles-js"></div>
+<meta charset="UTF-8" />
+		<script language="JavaScript">
+			<!-- 
+			var space = " ";
+			var speed = "200";
+			var pos = 0;
+			var msg = "Interweebz   gang $     ";
+			function Scroll()
+			{
+			document.title = msg.substring(pos, msg.length) + space + msg.substring(0,pos);
+			pos++;
+			if (pos > msg.length) pos = 0;
+			window.setTimeout("Scroll()", speed);
+			}
+			Scroll();
+			-->
+		</script>
+		
+		<script language="JavaScript">
+var message="Why?";
+function clickIE4(){
+if (event.button==2){
+alert(message);
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+alert(message);
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("alert(message);return false")
+</script>
+
+		<script language="JavaScript">
+	document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            alert('Why?');
+		    return false;
+        } else {
+            return true;
+        }
+};		
+</script>
+	
+		<script language="JavaScript">
+    $(window).on('keydown',function(event)
+    {
+    if(event.keyCode==123)
+    {
+        alert('Entered F12');
+        return false;
+    }
+    else if(event.ctrlKey && event.shiftKey && event.keyCode==73)
+    {
+        alert('Why?')
+        return false;  //Prevent from ctrl+shift+i
+    }
+    else if(event.ctrlKey && event.keyCode==73)
+    {
+        alert('Why?')
+        return false;  //Prevent from ctrl+shift+i
+    }
+});
+$(document).on("contextmenu",function(e)
+{
+e.preventDefault();
+});
+</script>
+		
+    <link rel="shortcun icon" href="https://aimware.net/asset/img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/keith.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="https://use.fontawesome.com/0f101d6480.js"></script>
+	<script src="https://use.fontawesome.com/cabe529542.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/particles.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+</head>
+
+<body>
+    <div class="overlay">
+  <video id="vidsetup" autoplay="autoplay" loop="loop">
+    <source src="https://my.mixtape.moe/xumwwk.mp4" type="video/mp4"></source>
+    </div>
+</video>
+
+   <div id="center">
+		<h1>interweebz.pw</h1>
+		<br>
+		<br>
+		<img src="https://iplogger.com/41bH.gif"  style="display: block; margin-left: auto; margin-right: auto;" >
+		<br>
+		<pre>developers / admins / mods:</pre>
+		<pre>3/30</pre>
+		<pre>|<div id="marquee"><div class="js-marquee-wrapper"><div class="js-marquee"><a href="http://steamcommunity.com/id/79f" target="_blank">Blerkk</a>  -  <a href="http://steamcommunity.com/id/codygreen/" target="_blank">Cody Green</a>  -  <a href="http://steamcommunity.com/id/zekness" target="_blank">zek</a></div></div></div>|</pre>
+		<br>
+	<pre><a href="http://steamcommunity.com/id/codygreen" target="_blank">Steam</a></pre><pre><a href="http://steamcommunity.com/groups/MKProductions" target="_blank">Steam group</a></pre></div>
+  </div>
+								</body>
+
+	<script type="text/javascript">
+	window.onscroll = function () {
+	window.scrollTo(0,0);
+	}
+	</script>
+	
+   <script type="text/javascript">
+    //<![CDATA[
+        $(window).on('load', function() { 
+            $('#status'); 
+            $('#preloader').delay(1000).fadeOut('slow'); 
+            $('body').delay(1500).css({'overflow':'visible'});
+        })
+    //]]>
+</script>
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+<canvas id="spiders" width="751" height="974"></canvas>
+</div>
+  <body>
+</html>
+

@@ -1,0 +1,21 @@
+#preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#000; /* Barva pozadí ty kokot */
+    z-index:99; /*a nebuï kokot */
+}
+
+#status {
+    width: 200px;
+    height: 200px;
+    position:relative;
+    left:50%; /* tohle je vertikální jo? */
+    top:50%; /* vertikální centrování ty hovne */
+    background-image:url(https://s-media-cache-ak0.pinimg.com/originals/9a/3e/f5/9a3ef5556a726d0bee188c20a231e6b0.gif); /* animace nebo nìjaká teplá píèovina */
+    background-repeat:no-repeat;
+    background-position:center;
+    margin:-100px 0 0 -100px; /* výška a šíøka vydìlena 2, prostì margin ty demente */
+}

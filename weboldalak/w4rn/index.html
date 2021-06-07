@@ -1,0 +1,116 @@
+<html>
+<head>
+    <script language="javascript" type="text/javascript" src="js/main.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <title>neverinjected
+</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="icon" href="https://rocketdock.com/images/screenshots/HeadShot.png" type="image/ico" sizes="16x16">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">
+    <script type="text/javascript" src="js/spider.js"></script>
+</head>
+
+<script language=JavaScript>
+ var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+
+if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+
+function mischandler(){
+return false;
+}
+
+function mousehandler(e){
+var myevent = (isNS) ? e : event;
+var eventbutton = (isNS) ? myevent.which : myevent.button;
+if((eventbutton==2)||(eventbutton==3)) return false;
+}
+document.oncontextmenu = mischandler;
+document.onmousedown = mousehandler;
+document.onmouseup = mousehandler;
+var isCtrl = false;
+document.onkeyup=function(e)
+{
+if(e.which == 17)
+isCtrl=false;
+}
+
+document.onkeydown=function(e)
+{
+if(e.which == 17)
+isCtrl=true;
+if(((e.which == 83)) || (e.which == 85) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99)) && isCtrl == true)
+{
+// alert(‘Keyboard shortcuts are cool!’);
+return false;
+}
+}
+</script>
+
+<body>
+<script type="text/javascript">
+    //<![CDATA[
+        $(window).on('load', function() { // makes sure the whole site is loaded
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(350).css({'overflow':'visible'});
+        })
+    //]]>
+</script>
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+<center>
+  <img src="ls.png" class="ls">
+</center>
+	
+    <canvas id="spiders"></canvas>
+    <div class="outer animated zoomInUp">
+        <header class="middle">
+            <div class="inner">
+                <a target="_blank" title="Click for more informations about our cheat." href="http://steamcommunity.com/id/79f/"class="animated fadeInDown"><img src="loco.png"> </a>
+            </div>
+        </header>
+    </div>
+    <div class="moveup animated rotateIn">
+			<p> Developers / Moderators </p>
+        <marquee>
+<p class="marq"> <a href="http://steamcommunity.com/id/79f/">Blerkk</a>   //   <a href="http://steamcommunity.com/id/29i">Cody Green</a></marquee>
+        <div class="divide"></div>
+		<a target="blank" title="Click for our steam group." href="http://steamcommunity.com/groups/neverinjected">Steam Group</a>
+		<br>
+		<br>
+		<p id="txt_story">
+		<script>
+        var story = "neverinjected, best legit cheat on the market, buy today, be superior ";
+
+		var counter = 0;
+		
+		var txt_story = document.getElementById("txt_story");
+		
+		var counterID = setInterval( doTypewriter, 90  );
+		//
+		function doTypewriter( ){
+				
+			var str = story.substr(0, counter);//substr( start position, totalchars );
+			//trace(str);
+			//txt_story.text = str;
+			txt_story.innerHTML = str;
+			
+			counter++;
+			//trace( story.length );
+			if ( counter >=  story.length ) {
+				clearInterval( counterID );
+			}
+		}
+        </script>
+		</p>
+       
+    </div>
+</body>
+
+</html>

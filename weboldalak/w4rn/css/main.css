@@ -1,0 +1,196 @@
+#spiders,
+.outer {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0
+}
+
+.inner,
+.moveup {
+    text-align: center
+}
+
+body {
+    background: #000;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+
+#preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#FFF; /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+ 
+#status {
+    width: 615px; /* image have to be same width as here */
+    height: 185px; /* image have to be same height as here */
+    position:absolute;
+    left:50%; /* centers the loading animation horizontally one the screen */
+    top:50%; /* centers the loading animation vertically one the screen */
+    background-image:url(https://i.imgur.com/wrL1CAu.png); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-position:center;
+    margin:-92px 0 0 -307px; /* is width and height divided by two */
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 1s opacity
+}
+
+.outer {
+    display: table;
+    position: absolute
+}
+
+#spiders {
+    position: fixed
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.moveup {
+    position: absolute;
+    top: 62%;
+    display: table;
+    color: #FFF;
+    width: 40vw;
+    left: 50%;
+    margin-left: -20vw;
+    font-size: 1.6vw;
+    font-family: Orbitron;
+    font-weight: 300;
+    z-index: 2
+}
+
+.inner span,
+a {
+    display: inline-block
+}
+
+.marq,
+a {
+    color: #fff
+}
+
+.inner,
+.marq {
+    font-weight: 700
+}
+
+.divide {
+    border-bottom: 3px solid #fff
+}
+
+.marq {
+    font-family: Verdana, sans-serif;
+    font-size: 16px
+}
+
+.moveup p {
+    margin: 10px 0
+}
+
+.inner {
+    position: relative;
+    margin: 0 auto;
+    width: 50vw;
+    font-size: 7.4vw;
+    padding: 0 30px;
+    background-color: RGBA(0, 0, 0, .6);
+    border: 0 solid;
+    transition: all .2s ease-in-out
+	
+}
+
+
+
+
+.inner:hover {
+    border: 20px solid;
+	  animation: colorRotate 6s linear 0s infinite;
+
+}
+
+@keyframes colorRotate {
+    from {
+        color: rgb(30, 87, 153);
+    }
+    33.3% {
+        color: rgb(243, 0, 255);
+    }
+    66.6% {
+        color: rgb(30, 87, 153);
+    }
+   
+    80% {
+        color: rgb(243, 0, 255);
+    }
+	 99.9% {
+        color: rgb(224, 255, 0);
+    }
+    to {
+        color: rgb(30, 87, 153);
+    }
+}
+
+
+header {
+    font-family: Lato, sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased!important
+}
+
+a {
+	
+    text-decoration: none
+}
+
+}
+#txt_story { 
+position: relative !important;
+
+}
+
+img.ls {
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    width: 2048px;
+    height: 2048px;
+    margin-top: -1024px;
+    margin-left: -1024px;
+    z-index: -1;
+    pointer-events: none;
+    -webkit-animation: spinreverse 30s infinite linear;
+}
+
+@-webkit-keyframes spinreverse {
+    0% {
+        -webkit-transform: rotate(-360deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
