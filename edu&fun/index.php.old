@@ -1,0 +1,112 @@
+<!--
+
+    https://www.hackster.io/gabrieltatarusanu/control-led-from-web-on-raspberry-pi-09bb51
+
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/elegant-icons.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/grid.css">
+
+    <title>Edu&Fun okoshaz</title>
+</head>
+
+<body>
+    <div class="tervrajz">
+        <img src="img/bg.png" alt="">
+
+        <!--div href="" class="kapcsolo"></div>
+        <div id="light-bulb" class="off ui-draggable" type="submit" name="ron">
+
+            <div id="light-bulb2" style="opacity: 0;" name="roff"></div>
+
+        </div-->
+    </div>
+
+    <div class="content">
+        <form method="get" action="index.php">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="submit" value="Nappali LED On" name="ron">
+                        <input type="submit" value="Nappali LED Off" name="roff">
+                        <a href="#" name="nappaliOn"><div class="plus"></div></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="submit" value="Konyha LED On" name="yon">
+                        <input type="submit" value="Konyha LED Off" name="yoff">
+                        <a href="#"><div class="plus"></div></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="submit" value="Furdo LED On" name="gon">
+                        <input type="submit" value="Furdo LED Off" name="goff">
+                        <a href="#"><div class="plus"></div></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="submit" value="Haloszoba LED On" name="gon">
+                        <input type="submit" value="Haloszoba LED Off" name="goff">
+                        <a href="#"><div class="plus"></div></a>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+
+    <?php
+    shell_exec("gpio -g mode 17 out");
+    shell_exec("gpio -g mode 22 out");
+    shell_exec("gpio -g mode 27 out");
+
+    if(isset($_GET['roff'])) {
+        shell_exec("gpio -g write 17 0");
+    }
+    else if(isset($_GET['ron'])) {
+        shell_exec("gpio -g write 17 1");
+    }
+    else if(isset($_GET['yon'])) {
+        shell_exec("gpio -g write 27 1");
+    }
+    else if(isset($_GET['yoff'])) {
+        shell_exec("gpio -g write 27 0");
+    }
+    else if(isset($_GET['gon'])) {
+        shell_exec("gpio -g write 22 1");
+    }
+    else if(isset($_GET['goff'])) {
+        shell_exec("gpio -g write 22 0");
+    }
+
+    ?>
+
+    <!-- Script szekcio -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Script szekcio -->
+</body>
+</html>
