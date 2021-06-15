@@ -333,6 +333,7 @@ def szenzorok():
         #         app.kulteriKapcsolo.configure(image = app.villanyLeResizedKicsi)
 
         # gui.update
+        pass
 
 def riaszto():
     # thread 2
