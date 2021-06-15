@@ -1,28 +1,34 @@
 import sys
+import os
 from tkinter import *
 from PIL import Image, ImageTk
+import threading
 # import RPi.GPIO as GPIO
 # import bme280
 
-# temperature = bme280.readBME280All()
-
 # GPIO.setmode(GPIO.BOARD)
 # GPIO.setwarnings(False)
-# #Haloszoba lampa
-# haloszoba = 7
-# GPIO.setup(haloszoba, GPIO.OUT)
-# #Konyha lampa
-# konyha = 11
-# GPIO.setup(konyha, GPIO.OUT)
+
 # #Nappali lampa
 # nappali = 12
 # GPIO.setup(nappali, GPIO.OUT)
+
+# #Haloszoba lampa
+# haloszoba = 7
+# GPIO.setup(haloszoba, GPIO.OUT)
+
+# #Konyha lampa
+# konyha = 11
+# GPIO.setup(konyha, GPIO.OUT)
+
 # #Kulteri lampa
 # kulteri = 13
 # GPIO.setup(kulteri, GPIO.OUT)
+
 # #mozgaserzekelo riasztas
 # mozgaserzekelo = 15
 # GPIO.setup(mozgaserzekelo, GPIO.OUT)
+
 # #viz a pinceben risztas
 # vizerzekelo = 16
 # GPIO.setup(vizerzekelo, GPIO.OUT)
@@ -66,8 +72,8 @@ class Fullscreen_Window(Frame):
         self.label.place(x=0, y=0)
 
         self.nappaliKapcsolo.place(relx=0.085, rely=0.230)
-        self.haloKapcsolo.place(relx=0.640, rely=0.230)
-        self.konyhaKapcsolo.place(relx=0.640, rely=0.587)
+        self.haloKapcsolo.place(relx=0.639, rely=0.230)
+        self.konyhaKapcsolo.place(relx=0.639, rely=0.587)
         self.kulteriKapcsolo.place(relx=0.930, rely=0.387)
 
     def toggle_villany(self, melyik):
@@ -92,8 +98,8 @@ class Fullscreen_Window(Frame):
             else:
                 self.melyik.configure(image = self.villanyLeResizedNagy)
                 self.kapcsolokAllapot[self.i] = False
-
-#==================================================
+        
+        GPIOallitas()
 
     def buttonResize(self, melyiket):
         self.melyiket = melyiket
@@ -111,6 +117,15 @@ class Fullscreen_Window(Frame):
                 self.melyiket.configure(image = self.villanyLeResizedNagy)
             else:
                 self.melyiket.configure(image = self.villanyLeResizedKicsi)
+
+    def GPIOalltias(self):
+        # GPIO.OUTPUT(nappali, self.kapcsolokAllapot[0])
+        # GPIO.OUTPUT(haloszoba, self.kapcsolokAllapot[1])
+        # GPIO.OUTPUT(konyha, self.kapcsolokAllapot[2])
+        # GPIO.OUTPUT(kulteri, self.kapcsolokAllapot[3])
+        pass
+
+#==================================================
 
     def toggle_fullscreen(self, event=None):
         self.fullscreenState = not self.fullscreenState
@@ -135,10 +150,31 @@ class Fullscreen_Window(Frame):
         gui.attributes("-fullscreen", False)
         return "break"
 
-if __name__ == '__main__':
+def t1():
+    #thread 1
+    pass
+
+def t2():
+    #thread 2
+    pass
+
+try:
     gui = Tk()
     app = Fullscreen_Window(gui)
     gui.geometry(str(round(gui.winfo_screenwidth() / 2)) + "x" + str(round(gui.winfo_screenheight() / 2)))
     gui.wm_title("Edu&Fun okoshaz")
     gui.resizable(0,0)
-    gui.mainloop()
+
+    thread1 = threading.Thread(target=t1)
+    thread1.daemon = True
+    thread1.start()
+    print("A thread 1 elindult")
+    thread2 = threading.Thread(target=t2)
+    thread2.daemon = False
+    thread2.start()
+    print("A thread 2 elindult")
+except:
+    print("Thread eleg ritkasan(nem) indult el")
+
+gui.mainloop()
+os._exit(1)

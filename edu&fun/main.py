@@ -64,7 +64,7 @@ class MyServer(BaseHTTPRequestHandler):
         '''
         temp = os.popen("/opt/vc/bin/vcgencmd measure_temp").read()
         self.do_HEAD()
-                status = ''
+        status = ''
 
         #ha minden igaz akkor ezek kapcsoljak a ledeket
         if(self.path=='/'):
