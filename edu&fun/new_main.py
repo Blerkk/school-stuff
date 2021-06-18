@@ -18,7 +18,7 @@ import time
     # GPIO.setup(konyha, GPIO.OUT)
     # #konyha ablak erzekelo
     # konyhaErzekelo = 22
-    # GPIO.setup(konyhaErzekelo, GPIO.IN)
+    # GPIO.setup(konyhaErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
     # #Nappali lampa
@@ -26,7 +26,7 @@ import time
     # GPIO.setup(nappali, GPIO.OUT)
     # #nappali ablak erzekelo
     # nappaliErzekelo = 29
-    # GPIO.setup(nappaliErzekelo, GPIO.IN)
+    # GPIO.setup(nappaliErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
     # #Haloszoba lampa
@@ -34,7 +34,7 @@ import time
     # GPIO.setup(haloszoba, GPIO.OUT)
     # #haloszoba ablak erzekelo
     # haloszobaErzekelo = 31
-    # GPIO.setup(haloszobaErzekelo, GPIO.IN)
+    # GPIO.setup(haloszobaErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
     # #Kulteri lampa
@@ -42,8 +42,8 @@ import time
     # GPIO.setup(kulteri, GPIO.OUT)
     # #garazs ajto erzekelo
     # garazsErzekelo = 32
-    # GPIO.setup(garazsErzekelo, GPIO.IN)
-    
+    # GPIO.setup(garazsErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 
     # #viz a pinceben
     # vizerzekelo = 36
@@ -53,18 +53,20 @@ import time
     # GPIO.setup(vizerzekeloLampa, GPIO.OUT)
     # #mozgaserzekelo riasztas
     # mozgaserzekelo = 33
-    # GPIO.setup(mozgaserzekelo, GPIO.IN)
+    # GPIO.setup(mozgaserzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     # #mozgaserzekelo riaszto lampa
     # riasztoLampa = 38
     # GPIO.setup(riasztoLampa, GPIO.OUT)
     # #kulso fenyeroseeg
     # fenyerosseg = 37
-    # GPIO.setup(fenyerosseg, GPIO.IN)
+    # GPIO.setup(fenyerosseg, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
     # # #garazs ajto nyito
     # # garazs = 
     # # GPIO.setup(garazs, GPIO.OUT)
+
+#================================
 
 class Fullscreen_Window(Frame):
     def __init__(self, master=None):
@@ -127,8 +129,9 @@ class Fullscreen_Window(Frame):
         self.haloKapcsolo = Button(image = self.villanyLeResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black", command = lambda: self.toggle_villany(self.haloKapcsolo))
         self.konyhaKapcsolo = Button(image  =self.villanyLeResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black", command = lambda: self.toggle_villany(self.konyhaKapcsolo))
         self.kulteriKapcsolo = Button(image = self.villanyLeResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black", command = lambda: self.toggle_villany(self.kulteriKapcsolo))
-        # ez a garazs lehet gomb is, mert mukodik, meglepo modon, de egyelore csak egy label, hogy fizikai ghombbal lehessen kapcsolni
+        # ez a garazs lehet gomb is, mert mukodik, meglepo modon, de egyelore csak egy label, hogy fizikai gombbal lehessen kapcsolni
         self.garazsKapcsolo = Label(image = self.garazsCloseResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black")
+        #
         self.nappaliAblak = Label(image = self.ablakCloseResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black")
         self.haloAblak = Label(image = self.ablakCloseResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black")
         self.konyhaAblak = Label(image  =self.ablakCloseResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black")
@@ -151,6 +154,8 @@ class Fullscreen_Window(Frame):
         self.haloAblak.place(relx=0.6947, rely=0.2203)
         self.konyhaAblak.place(relx=0.6947, rely=0.5750)
         self.wetLabel.place(relx=0.370, rely=0.8333)
+
+#==================================================
 
     def toggle_villany(self, melyik):
         self.melyik = melyik
@@ -304,22 +309,26 @@ class Fullscreen_Window(Frame):
         # GPIO.OUTPUT(haloszoba, self.kapcsolokAllapot[1])
         # GPIO.OUTPUT(konyha, self.kapcsolokAllapot[2])
         # GPIO.OUTPUT(kulteri, self.kapcsolokAllapot[3])
-        # GPIO.OUTPUT(garazs, self.garazsState)
+        #GPIO.OUTPUT(garazs, self.garazsState)
+
         pass
+#==================================================
 
 def szenzorok():
     # thread 1
     while True:
         # temperature = homSensor.get_temperature()
-        # Fullscreen_Window.tempVar.set(str(temperature) + " °C")
+        temperature = 23
+        app.tempVar.set(str(temperature) + " °C")
 
-        # if(GPIO.input(vizerzekelo) == GPIO.HIGH):
-        #     GPIO.OUTPUT(vizerzekeloLampa, GPIO.HIGH)
-        #     app.wetVar.set("Bepisiltem!")
-        #     # bepisiltem
-        # else:
-        #     GPIO.OUTPUT(vizerzekeloLampa, GPIO.LOW)
-        #     app.wetVar.set("")
+        asd = True
+        if(asd):
+            # GPIO.OUTPUT(vizerzekeloLampa, GPIO.HIGH)
+            app.wetVar.set("Bepisiltem!")
+            # bepisiltem
+        else:
+            # GPIO.OUTPUT(vizerzekeloLampa, GPIO.LOW)
+            app.wetVar.set("")
 
         # if(GPIO.input(fenyerzekelo) == GPIO.HIGH):
         #     if(app.fullscreenState):
@@ -332,14 +341,13 @@ def szenzorok():
         #     else:
         #         app.kulteriKapcsolo.configure(image = app.villanyLeResizedKicsi)
 
-        # gui.update
-        pass
+        gui.update()
 
 def riaszto():
     # thread 2
     #riasztoLastState = False
     while True:
-        riasztasState = False #GPIO.input(mozgaserzekelo)
+        riasztasState = True #GPIO.input(mozgaserzekelo)
         if(riasztasState): #!= riasztoLastState
             app.motionVar.set("RIASZTAS!")
             # GPIO.output(riasztasLampa, GPIO.HIGH)
@@ -347,6 +355,7 @@ def riaszto():
         else:
             app.motionVar.set("")
             # GPIO.output(riasztasLampa, GPIO.LOW)
+
         gui.update()
 
 def erzekelok():
@@ -361,7 +370,7 @@ def erzekelok():
             app.toggle_garazs()
             garazsLastState = garazsState
 
-        nappaliState = True #GPIO.input(nappaliErzekelo)
+        nappaliState = False #GPIO.input(nappaliErzekelo)
         if(nappaliState != app.ablakokAllapot[0]):
             app.ablakokAllapot[0] = nappaliState
             app.toggle_window(app.nappaliAblak)
@@ -371,12 +380,12 @@ def erzekelok():
             app.ablakokAllapot[1] = haloState
             app.toggle_window(app.haloAblak)
 
-        konyhaState = False #GPIO.input(konyhaErzekelo)
+        konyhaState = True #GPIO.input(konyhaErzekelo)
         if(konyhaState != app.ablakokAllapot[2]):
             app.ablakokAllapot[2] = konyhaState
             app.toggle_window(app.konyhaAblak)
 
-        gui.update
+        gui.update()
 
 try:
     gui = Tk()
