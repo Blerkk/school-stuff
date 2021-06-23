@@ -6,60 +6,60 @@ import threading
 import time
 
 #================================
-    # import RPi.GPIO as GPIO
-    # import w1thermsensor
-    # homSensor = W1ThermSensor()
+import RPi.GPIO as GPIO
+from w1thermsensor import W1ThermSensor
+#homSensor = W1ThermSensor()
 
-    # GPIO.setmode(GPIO.BOARD)
-    # GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 
-    # #Konyha lampa
-    # konyha = 11
-    # GPIO.setup(konyha, GPIO.OUT)
-    # #konyha ablak erzekelo
-    # konyhaErzekelo = 22
-    # GPIO.setup(konyhaErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
-
-    # #Nappali lampa
-    # nappali = 13
-    # GPIO.setup(nappali, GPIO.OUT)
-    # #nappali ablak erzekelo
-    # nappaliErzekelo = 29
-    # GPIO.setup(nappaliErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+#Konyha lampa
+konyha = 11
+GPIO.setup(konyha, GPIO.OUT)
+#konyha ablak erzekelo
+konyhaErzekelo = 22
+GPIO.setup(konyhaErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
-    # #Haloszoba lampa
-    # haloszoba = 15
-    # GPIO.setup(haloszoba, GPIO.OUT)
-    # #haloszoba ablak erzekelo
-    # haloszobaErzekelo = 31
-    # GPIO.setup(haloszobaErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+#Nappali lampa
+nappali = 13
+GPIO.setup(nappali, GPIO.OUT)
+#nappali ablak erzekelo
+nappaliErzekelo = 29
+GPIO.setup(nappaliErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
-    # #Kulteri lampa
-    # kulteri = 16
-    # GPIO.setup(kulteri, GPIO.OUT)
-    # #garazs ajto erzekelo
-    # garazsErzekelo = 32
-    # GPIO.setup(garazsErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+#Haloszoba lampa
+haloszoba = 15
+GPIO.setup(haloszoba, GPIO.OUT)
+#haloszoba ablak erzekelo
+haloszobaErzekelo = 31
+GPIO.setup(haloszobaErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
-    # #viz a pinceben
-    # vizerzekelo = 36
-    # GPIO.setup(vizerzekelo, GPIO.OUT)
-    # #viz a pinceben risztas lampa
-    # vizerzekeloLampa = 40
-    # GPIO.setup(vizerzekeloLampa, GPIO.OUT)
-    # #mozgaserzekelo riasztas
-    # mozgaserzekelo = 33
-    # GPIO.setup(mozgaserzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    # #mozgaserzekelo riaszto lampa
-    # riasztoLampa = 38
-    # GPIO.setup(riasztoLampa, GPIO.OUT)
-    # #kulso fenyeroseeg
-    # fenyerosseg = 37
-    # GPIO.setup(fenyerosseg, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+#Kulteri lampa
+kulteri = 16
+GPIO.setup(kulteri, GPIO.OUT)
+#garazs ajto erzekelo
+garazsErzekelo = 32
+GPIO.setup(garazsErzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+
+#viz a pinceben
+vizerzekelo = 36
+GPIO.setup(vizerzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+#viz a pinceben risztas lampa
+vizerzekeloLampa = 40
+GPIO.setup(vizerzekeloLampa, GPIO.OUT)
+#mozgaserzekelo riasztas
+mozgaserzekelo = 33
+GPIO.setup(mozgaserzekelo, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+#mozgaserzekelo riaszto lampa
+riasztoLampa = 38
+GPIO.setup(riasztoLampa, GPIO.OUT)
+#kulso fenyeroseeg
+fenyerosseg = 37
+GPIO.setup(fenyerosseg, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
     # # #garazs ajto nyito
@@ -78,7 +78,6 @@ class Fullscreen_Window(Frame):
         self.tempVar = StringVar()
         self.tempVar.set("N/A °C")
         self.wetVar = StringVar()
-        self.wetVar.set("Bepisiltem!")
         self.motionVar = StringVar()
         gui.bind("<f>", self.toggle_fullscreen)
         gui.bind("<Escape>", self.exit_fullscreen)
@@ -122,9 +121,10 @@ class Fullscreen_Window(Frame):
         self.ablakCloseResizedNagy = ImageTk.PhotoImage(self.resized_window_close_nagy)
 
         self.label = Label(image = self.tervrajzFullscreenFele) # -Fele
-        self.homersekletLabel = Label(border = 0, borderwidth = 0, background = "black", activebackground = "black", text="N/A", textvariable=self.tempVar)
-        self.motionLabel = Label(border = 0, borderwidth = 0, background = "black", activebackground = "black", text="N/A", textvariable=self.motionVar)
-        self.wetLabel = Label(border = 0, borderwidth = 0, background = "black", activebackground = "black", text="N/A", textvariable=self.wetVar)
+        self.homersekletLabel = Label(border = 0, borderwidth = 0, background = "black", foreground="white", activebackground = "black", text="N/A", textvariable=self.tempVar)
+        self.motionLabel = Label(border = 0, borderwidth = 0, background = "black", foreground="white", activebackground = "black", text="N/A", textvariable=self.motionVar)
+        self.wetLabel = Label(border = 0, borderwidth = 0, background = "black", foreground="white", activebackground = "black", text="N/A", textvariable=self.wetVar)
+        
         self.nappaliKapcsolo = Button(image = self.villanyLeResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black", command = lambda: self.toggle_villany(self.nappaliKapcsolo))
         self.haloKapcsolo = Button(image = self.villanyLeResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black", command = lambda: self.toggle_villany(self.haloKapcsolo))
         self.konyhaKapcsolo = Button(image  =self.villanyLeResizedKicsi, border = 0, borderwidth = 0, background = "black", activebackground = "black", command = lambda: self.toggle_villany(self.konyhaKapcsolo))
@@ -281,8 +281,13 @@ class Fullscreen_Window(Frame):
         self.windowResize(self.haloAblak)
         self.windowResize(self.konyhaAblak)
 
+        if(self.fullscreenState):
+            gui.geometry(str(round(gui.winfo_screenwidth())) + "x" + str(round(gui.winfo_screenheight())))
+        else:
+            gui.geometry(str(round(gui.winfo_screenwidth() / 2)) + "x" + str(round(gui.winfo_screenheight() / 2)))
 
         gui.attributes("-fullscreen", self.fullscreenState)
+
         return "break"
 
     def exit_fullscreen(self, event=None):
@@ -301,62 +306,62 @@ class Fullscreen_Window(Frame):
         self.windowResize(self.haloAblak)
         self.windowResize(self.konyhaAblak)
 
+        gui.geometry(str(round(gui.winfo_screenwidth() / 2)) + "x" + str(round(gui.winfo_screenheight() / 2)))
         gui.attributes("-fullscreen", False)
         return "break"
 
     def GPIOallitas(self):
-        # GPIO.OUTPUT(nappali, self.kapcsolokAllapot[0])
-        # GPIO.OUTPUT(haloszoba, self.kapcsolokAllapot[1])
-        # GPIO.OUTPUT(konyha, self.kapcsolokAllapot[2])
-        # GPIO.OUTPUT(kulteri, self.kapcsolokAllapot[3])
-        #GPIO.OUTPUT(garazs, self.garazsState)
-
-        pass
+        GPIO.output(nappali, self.kapcsolokAllapot[0])
+        GPIO.output(haloszoba, self.kapcsolokAllapot[1])
+        GPIO.output(konyha, self.kapcsolokAllapot[2])
+        GPIO.output(kulteri, self.kapcsolokAllapot[3])
+        
 #==================================================
 
 def szenzorok():
     # thread 1
     while True:
-        # temperature = homSensor.get_temperature()
-        temperature = 23
+        temperature = 23#homSensor.get_temperature()
         app.tempVar.set(str(temperature) + " °C")
 
-        asd = True
-        if(asd):
-            # GPIO.OUTPUT(vizerzekeloLampa, GPIO.HIGH)
+        vizerzekeloState = GPIO.input(vizerzekelo)
+        if(vizerzekeloState == True):
             app.wetVar.set("Bepisiltem!")
-            # bepisiltem
+            GPIO.output(vizerzekeloLampa, GPIO.HIGH)
         else:
-            # GPIO.OUTPUT(vizerzekeloLampa, GPIO.LOW)
             app.wetVar.set("")
-
-        # if(GPIO.input(fenyerzekelo) == GPIO.HIGH):
-        #     if(app.fullscreenState):
-        #         app.kulteriKapcsolo.configure(image = app.villanyFelResizedNagy)
-        #     else:
-        #         app.kulteriKapcsolo.configure(image = app.villanyFelResizedKicsi)
-        # else:
-        #     if(app.fullscreenState):
-        #         app.kulteriKapcsolo.configure(image = app.villanyLeResizedNagy)
-        #     else:
-        #         app.kulteriKapcsolo.configure(image = app.villanyLeResizedKicsi)
-
+            GPIO.output(vizerzekeloLampa, GPIO.LOW)
+            
+        fenyerossegState = GPIO.input(fenyerosseg)
+        if(fenyerossegState == True):
+            GPIO.output(kulteri, GPIO.HIGH)
+            if(app.fullscreenState):
+                app.kulteriKapcsolo.configure(image = app.villanyFelResizedNagy)
+            else:
+                app.kulteriKapcsolo.configure(image = app.villanyFelResizedKicsi)
+        else:
+            GPIO.output(kulteri, GPIO.LOW)
+            if(app.fullscreenState):
+                app.kulteriKapcsolo.configure(image = app.villanyLeResizedNagy)
+            else:
+                app.kulteriKapcsolo.configure(image = app.villanyLeResizedKicsi)
+        
         gui.update()
+        time.sleep(0.1)
 
 def riaszto():
     # thread 2
-    #riasztoLastState = False
     while True:
-        riasztasState = True #GPIO.input(mozgaserzekelo)
-        if(riasztasState): #!= riasztoLastState
+        riasztasState = GPIO.input(mozgaserzekelo)
+        if(riasztasState == True):
             app.motionVar.set("RIASZTAS!")
-            # GPIO.output(riasztasLampa, GPIO.HIGH)
-            #riasztoLastState = riasztasState
+            GPIO.output(riasztoLampa, GPIO.HIGH)
         else:
             app.motionVar.set("")
-            # GPIO.output(riasztasLampa, GPIO.LOW)
-
+            GPIO.output(riasztoLampa, GPIO.LOW)
+        
         gui.update()
+        time.sleep(0.1)
 
 def erzekelok():
     garazsLastState = True
@@ -365,33 +370,35 @@ def erzekelok():
     app.toggle_window(app.konyhaAblak)
 
     while True:
-        garazsState = True #GPIO.input(garazsErzekelo)
+        garazsState = GPIO.input(garazsErzekelo)
         if(garazsState != garazsLastState):
             app.toggle_garazs()
             garazsLastState = garazsState
 
-        nappaliState = False #GPIO.input(nappaliErzekelo)
+        nappaliState = GPIO.input(nappaliErzekelo)
         if(nappaliState != app.ablakokAllapot[0]):
             app.ablakokAllapot[0] = nappaliState
             app.toggle_window(app.nappaliAblak)
 
-        haloState = False #GPIO.input(haloszobaErzekelo)
+        haloState = GPIO.input(haloszobaErzekelo)
         if(haloState != app.ablakokAllapot[1]):
             app.ablakokAllapot[1] = haloState
             app.toggle_window(app.haloAblak)
 
-        konyhaState = True #GPIO.input(konyhaErzekelo)
+        konyhaState = GPIO.input(konyhaErzekelo)
         if(konyhaState != app.ablakokAllapot[2]):
             app.ablakokAllapot[2] = konyhaState
             app.toggle_window(app.konyhaAblak)
-
+            
         gui.update()
+        time.sleep(0.1)
 
 try:
     gui = Tk()
     app = Fullscreen_Window(gui)
     gui.geometry(str(round(gui.winfo_screenwidth() / 2)) + "x" + str(round(gui.winfo_screenheight() / 2)))
     gui.wm_title("Edu&Fun okoshaz")
+    gui.attributes('-fullscreen', False)
     gui.resizable(0,0)
 
     thread1 = threading.Thread(target=szenzorok)
